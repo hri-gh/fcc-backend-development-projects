@@ -2,7 +2,6 @@ import express from 'express';
 
 const app = express();
 
-const port = process.env.PORT || 8000
 
 
 app.get('/api', (req, res) => {
@@ -49,6 +48,7 @@ app.get('/api/:date', (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+const PORT = process.env.PORT || 8000
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
 })

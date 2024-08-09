@@ -12,10 +12,10 @@ app.use('/public', express.static(process.cwd() + '/public'));
 const storage = multer.memoryStorage(); // Stores the file in memory
 const upload = multer({ storage });
 
+
 app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
-
 
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
   if (!req.file) {
@@ -31,7 +31,6 @@ app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
 
   res.json(response);
 });
-
 
 
 const port = process.env.PORT || 3000;
